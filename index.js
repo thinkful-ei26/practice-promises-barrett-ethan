@@ -3,12 +3,36 @@ const searchTerm = process.argv[2];
 
 const axios = require('axios');
 
-const BASE_URL = 'https://swapi.co/api';
+const BASE_URL = `https://swapi.co/api/people/?search=${searchTerm}`;
 
-axios.get(`${BASE_URL}/people/1`)
-  .then(results => {
-    console.log(results.data.name);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+// ${searchTerm}
+function getName(searchTerm){
+  axios.get(`${BASE_URL}`)
+    .then(response => {
+      console.log(`${response.data.results[0].name} has been found`);
+    })
+    .then(response => {
+      console.log(`${response.data.results[0].gender} has starred in the following films:`);
+    })
+  // .then(response => {
+  //   console.
+  // })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+function getName(){
+  axios.get(`${BASE_URL}`)
+  .then(response => {
+    console.log(`${response.data.results[0].name} has been found`);
+};
+
+
+function getGender (){
+  axios.get(`${BASE_URL}`)
+  .then(response => {
+    console.log(`${response.data.results[0].name} has been found`);
+};
+
+function getFilms
